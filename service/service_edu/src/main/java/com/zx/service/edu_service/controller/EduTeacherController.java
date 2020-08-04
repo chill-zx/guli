@@ -12,8 +12,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -95,7 +97,28 @@ public class EduTeacherController {
         if (flag){
             return Result.ok();
         } else {
+            return Result.error();
+        }
+    }
+
+    @ApiOperation("根据id进行查询讲师信息")
+    @GetMapping("getTeacherId/{id}")
+    public Result getTeacherId(@PathVariable Integer id){
+        EduTeacher eduTeacher = eduTeacherService.getById(id);
+        return Result.ok().data("teacher",eduTeacher);
+    }
+    @ApiOperation("修改讲师信息")
+    @PostMapping("updateTeacher")
+    public Result updateTeacher(@RequestBody EduTeacher eduTeacher){
+        //查询讲师ID
+        //EduTeacher eduTeacherInfo = eduTeacherService.getById(eduTeacher.getId());
+        //根据讲师ID修改讲师信息
+        boolean flag = eduTeacherService.updateById(eduTeacher);
+        System.out.println(flag);
+        if (flag){
             return Result.ok();
+        } else {
+            return Result.error();
         }
     }
 }
