@@ -30,6 +30,7 @@ import java.util.List;
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
+@CrossOrigin
 public class EduTeacherController {
 
     @Autowired
@@ -44,7 +45,7 @@ public class EduTeacherController {
 
     @ApiOperation(value = "逻辑删除讲师")
     @DeleteMapping("{id}")
-    public Result removeTeacher(@ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable Integer id){
+    public Result removeTeacher(@ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable String id){
         boolean flag = eduTeacherService.removeById(id);
         if (flag){
             return Result.ok();
@@ -103,7 +104,7 @@ public class EduTeacherController {
 
     @ApiOperation("根据id进行查询讲师信息")
     @GetMapping("getTeacherId/{id}")
-    public Result getTeacherId(@PathVariable Integer id){
+    public Result getTeacherId(@PathVariable String id){
         EduTeacher eduTeacher = eduTeacherService.getById(id);
         return Result.ok().data("teacher",eduTeacher);
     }
