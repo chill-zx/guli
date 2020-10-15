@@ -23,6 +23,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         //this.setFieldValByName("version",1,metaObject);
         //this.setFieldValByName("isDeleted",0,metaObject);
     }
+
     @Override
     public void updateFill(MetaObject metaObject) {
         LOGGER.info("start update fill ....");
