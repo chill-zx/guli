@@ -14,7 +14,7 @@ spring:
 aliyun:
   oss:
     file:
-      endpoint: your endpoin
-      keyid: your accessKeyId
-      keysecret: your accessKeySecret
-      bucketname: guli-file
+      endpoint: http://oss-cn-chengdu.aliyuncs.com
+      keyid: LTAIJ8HeSlbRj07j
+      keysecret: UzvEJHdgrPEKcAdStWWlpYQ2RgN119
+      bucketname: edu-guli-zx
